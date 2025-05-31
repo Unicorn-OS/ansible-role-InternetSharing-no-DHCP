@@ -1,10 +1,15 @@
 ---
-- name: Ubuntu source
-  include_tasks: "source/{{ Ubuntu_source }}.yml"
 
-# old
-# - include_tasks: "from:/{{ source }}/main.yml"
-#  when: in == "native" and not repository
+# https://wiki.archlinux.org/title/Internet_sharing#Enable_packet_forwarding
+- name: Enable packet forwarding in sysctl.d
+  ansible.builtin.copy:
+    src: "{{ sysctld_file }}"
+    dest: "/etc/sysctl.d/{{ sysctld_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+  notify: Load sysctl.d config
 
-#- include_tasks: "common/{{ ubuntu_default }}/main.yml"
-
+- name: Netplan
+  include_tasks: "netplan/main.yml"

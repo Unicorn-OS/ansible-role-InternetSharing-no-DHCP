@@ -1,0 +1,5 @@
+---
+
+- debug:
+    msg: "Hello Netplan"
+  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"

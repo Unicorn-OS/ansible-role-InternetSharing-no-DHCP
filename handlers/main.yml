@@ -1,3 +1,4 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# handlers file for ansible-role-InternetSharing-static-IP
+- name: Load sysctl.d config
+  ansible.builtin.command: "sysctl --load=/etc/sysctl.d/{{ sysctld_file }}"
+  become: true

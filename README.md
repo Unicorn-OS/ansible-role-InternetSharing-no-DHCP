@@ -1,4 +1,4 @@
-Internet-Sharing-without-DHCP
+Internet Sharing no DHCP
 =========
 
 Share Internet over a ethernet interface with a subnet, but have the DHCP handled by an external service such as MAAS.

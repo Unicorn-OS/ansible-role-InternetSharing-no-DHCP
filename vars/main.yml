@@ -1,3 +1,2 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# vars file for ansible-role-InternetSharing-static-IP
+sysctld_file: 10-internet-sharing.conf
