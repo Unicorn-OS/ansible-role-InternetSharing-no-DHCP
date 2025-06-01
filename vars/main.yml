@@ -1,2 +1,6 @@
 ---
 sysctld_file: 10-internet-sharing.conf
+
+netplan_VFIO_src: NAT-with-KVM-passthrough.yaml.j2
+
+netplan_file: 01-network-manager-all.yaml

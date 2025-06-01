@@ -3,3 +3,16 @@
 - debug:
     msg: "Hello Netplan"
   when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
+
+# https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-04-bionic-beaver-linux
+
+- name: Netplan file for VM with PCIPassthrough
+  ansible.builtin.template:
+    src: "netplan/{{ netplan_VFIO_src }}"
+    dest: "/etc/netplan/{{ netplan_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+  notify: Netplan apply
+  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"

@@ -2,3 +2,7 @@
 - name: Load sysctl.d config
   ansible.builtin.command: "sysctl --load=/etc/sysctl.d/{{ sysctld_file }}"
   become: true
+
+- name: Netplan apply
+  ansible.builtin.command: netplan apply
+  become: true
